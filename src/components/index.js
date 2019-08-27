@@ -11,7 +11,9 @@ export { default as Checkbox } from './form/Checkbox'
 export { default as Input } from './form/Input'
 
 // layout
+export { default as Cell } from './layout/Cell'
 export { default as Flexbox } from './layout/Flexbox'
+export { default as Grid } from './layout/Grid'
 export { default as Header } from './layout/Header'
 export { default as Modal } from './layout/Modal'
 export { default as Page } from './layout/Page'
