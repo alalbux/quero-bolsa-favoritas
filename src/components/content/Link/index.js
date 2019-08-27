@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import Text from '../Text/Text'
+import Text from '../Text'
 
 const Link = styled(Text)`
-  color: #ee0099!important;
+  color: #ee0099;
   text-decoration: none;
 
   &:visited {
-    color: #b4006c!important;
+    color: #b4006c;
     text-decoration: none;
   }
 
