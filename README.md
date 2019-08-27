@@ -12,7 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ```
 $ git clone https://github.com/alalbux/quero-bolsa-favoritas.git
 $ cd quero-bolsa-favoritas/
-$ cp .env.example .env # fill REACT_APP_API_KEY and REACT_APP_ENC_KEY with yours respectives keys
 $ yarn install
 ```
 
