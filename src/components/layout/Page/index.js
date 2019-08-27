@@ -1,8 +1,9 @@
 import React from 'react'
-import  { oneOfType, node, func } from 'prop-types'
+import { oneOfType, node, func } from 'prop-types'
 import styled from 'styled-components'
 
 const PageContainer = styled.div`
+  background-color: #FBFBFB;
   padding-bottom: 32px;
   width: 100%;
   margin: 0 auto;
@@ -16,7 +17,7 @@ const PageContent = styled.div`
 const Page = ({ children, height }) => (
   <PageContainer height={height}>
     <PageContent>
-    {children}
+      {children}
     </PageContent>
   </PageContainer>
 )
