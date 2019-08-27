@@ -1,10 +1,16 @@
 import React from 'react'
 import './App.css'
-import Button from './components/Button'
+import { 
+  Button,
+  Header,
+  Menu
+} from './components'
 
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Menu />
       Home
       <Button> Test </Button>
     </div>
