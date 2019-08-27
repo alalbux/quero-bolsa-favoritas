@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 const Input = styled.input`
   ${props => props.fullWidth && 'width: 100%;'}
-  font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
   color: #000000;
   border: none;
