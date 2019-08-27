@@ -4,8 +4,7 @@ const Input = styled.input`
   ${props => props.fullWidth && 'width: 100%;'}
   font-size: 16px;
   color: #000000;
-  border: none;
-  border-bottom: 1px solid #AAAAAA;
+  border: 1px solid #AAAAAA;
   padding: 8px 0;
   background: none;
 
@@ -25,15 +24,15 @@ const Input = styled.input`
   &:-moz-placeholder { color: #424242 }
 
   ${props => !props.invalid && !props.valid && `{
-    &:focus { border-bottom: 1px solid #EE0099; }
+    &:focus { border: 1px solid #EE0099; }
   }`}
 
   ${props => props.invalid && `{
-    border-bottom-color: #FF0931;
+    border-color: #FF0931;
   }`}
 
   ${props => props.showValid && props.touched && props.valid && `{
-    border-bottom-color: #50e3c2;
+    border-color: #50e3c2;
   }`}
 `
 
