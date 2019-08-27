@@ -1,10 +1,10 @@
 import React from 'react'
 import  { oneOfType, node, func } from 'prop-types'
 import styled from 'styled-components'
+
 const PageContainer = styled.div`
-  padding-top: ${props => props.top ? `calc(${props.top}px + 32px)` : '32px'};
   padding-bottom: 32px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   ${props => props.height && `height: ${props.height};`}
 `
@@ -13,9 +13,8 @@ const PageContent = styled.div`
   display: flex;
 `
 
-const Page = ({ children, menuComponent: MenuComponent, top, height }) => (
-  <PageContainer top={top} height={height}>
-    {MenuComponent && <MenuComponent />}
+const Page = ({ children, height }) => (
+  <PageContainer height={height}>
     <PageContent>
     {children}
     </PageContent>
@@ -23,8 +22,7 @@ const Page = ({ children, menuComponent: MenuComponent, top, height }) => (
 )
 
 Page.propTypes = {
-  children: oneOfType([node, func]),
-  menuComponent: oneOfType([node, func])
+  children: oneOfType([node, func])
 }
 
 Page.displayName = 'Page'
