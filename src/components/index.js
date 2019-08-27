@@ -1,3 +1,4 @@
-export { default as Button } from './Button'
-export { default as Header } from './Header'
-export { default as Menu } from './Menu'
+export { default as Button } from './assests/Button'
+export { default as Card } from './cards/Card'
+export { default as Header } from './layout/Header'
+export { default as Menu } from './navigation/Menu'
