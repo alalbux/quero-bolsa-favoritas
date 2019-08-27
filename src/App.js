@@ -27,7 +27,7 @@ class App extends React.Component {
       <Page>
         <Grid>
           <Cell size={[12, 12, 12]}>
-            <Header />
+            <Header height='100px'/>
             <Menu />
             Home
             <Button> Test </Button>
