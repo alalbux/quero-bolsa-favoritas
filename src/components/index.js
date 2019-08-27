@@ -9,6 +9,7 @@ export { default as Text } from './content/Text'
 // form
 export { default as Checkbox } from './form/Checkbox'
 export { default as Input } from './form/Input'
+export { default as Select } from './form/Select'
 
 // layout
 export { default as Cell } from './layout/Cell'
@@ -19,4 +20,5 @@ export { default as Modal } from './layout/Modal'
 export { default as Page } from './layout/Page'
 
 // navigation
+export { default as Breadcrumbs } from './navigation/Breadcrumbs'
 export { default as Menu } from './navigation/Menu'
