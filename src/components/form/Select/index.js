@@ -6,8 +6,7 @@ import {
   string
 } from 'prop-types'
 import styled from 'styled-components'
-import Input from '../Input/Input'
-import Backdrop from '../../layout/Backdrop/Backdrop'
+import Input from '../Input/'
 
 const SelectWrapper = styled.div`
   display: inline-block;
@@ -70,7 +69,6 @@ const SelectInput = styled(() => <Input as={() => class extends React.Component 
 
         {open && !disabled && (
           <Fragment>
-            <Backdrop />
             <OptionsWrapper>
               {children.map((option, index) => index !== 0 && (
                 <Option
