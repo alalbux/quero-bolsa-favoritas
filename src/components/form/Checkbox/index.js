@@ -8,7 +8,6 @@ const Checkbox = styled(({ children, className, ...inputProps }) => (
     <div className='box' />
   </label>
 ))`
-  font-family: 'Nunito Sans', sans-serif;
   display: block;
   position: relative;
   padding-left: 35px;
