@@ -1,0 +1,19 @@
+.Menu {
+    height: 60px;
+    background: #18ACC4;
+    display: flex;
+    padding: 16px 0;
+}
+
+.Menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.Menu ul li {
+    padding: 0 16px;
+}
