@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-/**
- * The only true paragraph.
- */
 const Text = styled.p`
   font-size: ${props => props.fontSize}px;
   font-weight: ${props => props.fontWeight};
@@ -15,7 +12,6 @@ const Text = styled.p`
 `
 
 Text.propTypes = {
-  // margin: PropTypes.string,
   align: PropTypes.oneOf(['left', 'center', 'right']),
   color: PropTypes.string,
   lineHeight: PropTypes.number,
