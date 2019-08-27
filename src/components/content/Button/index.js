@@ -1,9 +1,6 @@
 import { oneOf, node, bool, string, shape } from 'prop-types'
 import styled, { css } from 'styled-components'
 
-/**
- * The only true Button component.
- */
 const Button = styled.button`
   background-color: none;
   border: 2px solid #18ACC4;
@@ -21,7 +18,7 @@ const Button = styled.button`
   cursor: pointer;
   outline: none;
 
-  ${props => (props.light || props.dark) && css`
+  ${props => (props.default) && css`
     background: none;
     box-shadow: none;
     border: solid 1px;
@@ -35,34 +32,12 @@ const Button = styled.button`
     }
   `}
 
-  ${props => props.light && css`
+  ${props => props.default && css`
     color: #000;
     border-color: #000;
     &:hover {
       border-color: #545252;
       color: #545252;
-    }
-  `}
-
-  ${props => props.dark && css`
-    color: #fff;
-    border-color: #fff;
-
-    path {
-      fill: #fff;
-    }
-
-    &:hover {
-      border-color: #bebebe;
-      color: #bebebe;
-
-      path {
-        fill: #ee0099!important;
-      }
-    }
-    &:active {
-      border-color: #ee0099;
-      color: #ee0099;
     }
   `}
 
@@ -103,7 +78,7 @@ const Button = styled.button`
     }
   `}
 
-  ${props => props.flat && props.dark && `
+  ${props => props.flat && `
     color: #fff;
 
     &:hover {
@@ -133,25 +108,14 @@ const Button = styled.button`
 `
 
 Button.propTypes = {
-  /** Children nodes. */
   children: node,
-  /** Disable button. */
   disabled: bool,
-  /** Active button. */
   active: bool,
-  /** Dark button style. */
-  dark: bool,
-  /** Light button style. */
-  light: bool,
-  /** Flat button style. */
+  default: bool,
   flat: bool,
-  /** Button text color. */
   color: string,
-  /** Button type. */
   type: string,
-  /** Button align. */
   align: oneOf(['center', 'left', 'right']),
-  /** Button margin. */
   margin: shape({
     top: string,
     bottom: string,
