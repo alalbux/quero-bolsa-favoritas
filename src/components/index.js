@@ -5,6 +5,7 @@ export { default as Card } from './cards/Card'
 export { default as Button } from './content/Button'
 export { default as Link } from './content/Link'
 export { default as Text } from './content/Text'
+export { default as Title } from './content/Title'
 
 // form
 export { default as Checkbox } from './form/Checkbox'

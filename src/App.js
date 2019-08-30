@@ -8,6 +8,7 @@ import {
   Breadcrumbs,
   Card,
   Link,
+  Title,
   Text,
   Checkbox,
   Input,
@@ -39,7 +40,7 @@ class App extends React.Component {
             <Breadcrumbs />
           </Cell>
           <Cell size={[12, 12, 12]}>
-            <Text>Bolsas favoritas</Text>
+            <Title.H1>Bolsas favoritas</Title.H1>
             <Text>Adicione bolsas de cursos e faculdades do seu interesse e receba atualização das melhores ofertas disponíveis</Text>
           </Cell>
           <Cell size={[12, 12, 12]}>
@@ -49,7 +50,7 @@ class App extends React.Component {
               <Button> 1º semestre de 2020 </Button>
             </Flexbox>
           </Cell>
-          <Cell size={[12, 12, 12]}>
+          <Cell size={[3, 3, 3]}>
             <Card onClick={() => this.setState({ opened: true })}>
               <Text>Adicionar bolsa</Text>
               <Text>Clique para adicionar bolsas do seu interesse</Text>
