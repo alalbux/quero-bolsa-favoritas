@@ -5,7 +5,8 @@ const Scholarships = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  display: table;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 `
 
