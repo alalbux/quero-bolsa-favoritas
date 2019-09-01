@@ -4,31 +4,52 @@ import {
   Header,
   Menu,
   Footer,
-  //test
   Breadcrumbs,
   Card,
-  Link,
   Title,
   Text,
   Checkbox,
-  Input,
   Select,
   Flexbox,
   Modal,
   Page,
   Grid,
-  Cell
+  Cell,
+  ButtonGroup
 } from './components'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      opened: false
+      opened: false,
+      filters: [
+        'filters'
+      ],
+      data: [],
+      isLoading: false
     }
   }
 
+  componentDidMount() {
+    this.fetchData()
+  }
+
+  fetchData() {
+    fetch(`https://testapi.io/api/redealumni/scholarships`)
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          data: data,
+          isLoading: false,
+        })
+      )
+      .catch(error => this.setState({ error, isLoading: false }))
+  }
+
   render() {
+    const { isLoading, data, error } = this.state
+
     return (
       <Page>
         <Grid>
@@ -44,11 +65,23 @@ class App extends React.Component {
             <Text>Adicione bolsas de cursos e faculdades do seu interesse e receba atualização das melhores ofertas disponíveis</Text>
           </Cell>
           <Cell size={[12, 12, 12]}>
-            <Flexbox>
-              <Button> Todos os semestres </Button>
-              <Button> 2º semestre de 2019 </Button>
-              <Button> 1º semestre de 2020 </Button>
-            </Flexbox>
+            <ButtonGroup
+              name='period-filter'
+              items={[
+                {
+                  name: 'Todos os semestres',
+                  value: 'all'
+                },
+                {
+                  name: '2º semestre de 2019',
+                  value: 'second-half'
+                },
+                {
+                  name: '1º semestre de 2020',
+                  value: 'first-half'
+                }
+              ]}
+            />
           </Cell>
           <Cell size={[3, 3, 3]}>
             <Card onClick={() => this.setState({ opened: true })}>
@@ -56,9 +89,87 @@ class App extends React.Component {
               <Text>Clique para adicionar bolsas do seu interesse</Text>
             </Card>
           </Cell>
+          {!isLoading ? (
+            data.map(item => {
+              const { university, course, price_with_discount, full_price, enabled } = item
+              const isEnabled = enabled
+              return (
+                <Cell size={[3, 3, 3]}>
+                  <Card>
+                    <img src={university.logo_url} />
+                    <Text>{university.name}</Text>
+                    <Text>{course.name}</Text>
+                    <Text>{university.score}</Text>
+                    <Text>{course.kind} - {course.shift}</Text>
+                    <Text>Início das aulas em: 05/07/2019</Text>
+                    {!isEnabled ? (
+                      <div>
+                        <Text>Mensalidade com o Quero Bolsa:</Text>
+                        <Text>{full_price}</Text>
+                        <Text>{price_with_discount}</Text>
+                        <Button>Excluir</Button>
+                        <Button>Ver oferta</Button>
+                      </div>
+                    ) : (
+                        <div>
+                          <Text>Bolsa indisponível.</Text>
+                          <Text>Entre em contato com nosso atendimento para saber mais.</Text>
+                          <Button>Excluir</Button>
+                          <Button disabled>Indisponível</Button>
+                        </div>
+                      )}
+
+                  </Card>
+                </Cell>
+              )
+            })
+          ) : (
+              <h3>Loading...</h3>
+            )}
           <Flexbox>
-            <Modal opened={this.state.opened} onClose={() => this.setState({ opened: false })}>
-              <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus lacinia ultricies. Aliquam eu porttitor eros. Integer vitae porttitor ipsum. Curabitur ut ipsum in velit ornare feugiat. Phasellus non condimentum ex. Proin hendrerit faucibus dictum. Quisque condimentum tincidunt tortor, nec sodales nisi vulputate in. Donec pellentesque, leo in viverra blandit, felis risus tincidunt arcu, vel aliquam massa quam in enim. Phasellus vitae convallis erat. In cursus mi et urna ullamcorper imperdiet. Morbi pellentesque, dolor in aliquam placerat, mi lacus accumsan nibh, vel ultrices mi diam non nisi. Proin eros lacus, lobortis sed elementum at, efficitur vitae ex. Vivamus quam lacus, imperdiet vitae auctor a, varius nec sem. Nullam tincidunt, neque et interdum hendrerit, metus est hendrerit urna, quis consequat sem nibh ac orci. Proin dapibus hendrerit mauris, sed tincidunt urna rutrum et.</Text>
+            <Modal opened={this.state.opened}
+              onClose={() => this.setState({ opened: false })}
+              width="70"
+            >
+              <Title.H2>Adicionar bolsa</Title.H2>
+              <Text>Selecione sua cidade</Text>
+              <Select></Select>
+              <Text>Selecione seu curso de preferência</Text>
+              <Select></Select>
+              <Text>Como você quer estudar</Text>
+              <div>
+                <Checkbox>Presencial</Checkbox>
+                <Checkbox>A distância</Checkbox>
+              </div>
+              <Text>Até quanto pode pagar?</Text>
+
+              <div>
+                <Text>Resultado:</Text>
+                <Text>Ordenar por {this.state.filters}</Text>
+                <div>
+                  {error ? <p>{error.message}</p> : null}
+                  {!isLoading ? (
+                    data.map(item => {
+                      const { university, course, discount_percentage, price_with_discount } = item
+                      return (
+                        <div key={Math.random()}>
+                          <Checkbox><img src={university.logo_url} /></Checkbox>
+                          <Text>{course.name}</Text>
+                          <Text>{course.level}</Text>
+                          <Text>Bolsa de {discount_percentage} {price_with_discount}</Text>
+                        </div>
+                      )
+                    })
+                  ) : (
+                      <h3>Loading...</h3>
+                    )}
+                </div>
+                <div>
+                  <Button>Cancelar</Button>
+                  <Button>Adicionar bolsa(s)</Button>
+                </div>
+              </div>
+
             </Modal>
           </Flexbox>
           <Cell size={[12, 12, 12]}>
