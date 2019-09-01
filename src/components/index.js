@@ -1,8 +1,10 @@
 // cards
 export { default as Card } from './cards/Card'
+export { default as ScholarshipsCard } from './cards/ScholarshipsCard'
 
 //content
 export { default as Button } from './content/Button'
+export { default as ButtonGroup } from './content/ButtonGroup'
 export { default as Link } from './content/Link'
 export { default as Text } from './content/Text'
 export { default as Title } from './content/Title'
@@ -21,6 +23,11 @@ export { default as Header } from './layout/Header'
 export { default as Modal } from './layout/Modal'
 export { default as Page } from './layout/Page'
 
+// list
+export { default as Scholarships } from './list/Scholarships'
+export { default as ScholarshipsItem } from './list/ScholarshipsItem'
+
 // navigation
 export { default as Breadcrumbs } from './navigation/Breadcrumbs'
 export { default as Menu } from './navigation/Menu'
+
