@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {
   Button,
   Header,
@@ -18,7 +18,7 @@ import {
   ButtonGroup
 } from './components'
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -96,7 +96,7 @@ class App extends React.Component {
               return (
                 <Cell size={[3, 3, 3]}>
                   <Card>
-                    <img src={university.logo_url} />
+                    <img src={university.logo_url} alt={university.name} />
                     <Text>{university.name}</Text>
                     <Text>{course.name}</Text>
                     <Text>{university.score}</Text>
@@ -153,7 +153,7 @@ class App extends React.Component {
                       const { university, course, discount_percentage, price_with_discount } = item
                       return (
                         <div key={Math.random()}>
-                          <Checkbox><img src={university.logo_url} /></Checkbox>
+                          <Checkbox><img src={university.logo_url} alt={university.name} /></Checkbox>
                           <Text>{course.name}</Text>
                           <Text>{course.level}</Text>
                           <Text>Bolsa de {discount_percentage} {price_with_discount}</Text>
