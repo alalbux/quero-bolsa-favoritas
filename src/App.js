@@ -15,7 +15,9 @@ import {
   Page,
   Grid,
   Cell,
-  ButtonGroup
+  ButtonGroup,
+  Scholarships,
+  ScholarshipsItem
 } from './components'
 
 class App extends Component {
@@ -126,57 +128,51 @@ class App extends Component {
           ) : (
               <h3>Loading...</h3>
             )}
-          <Flexbox>
-            <Modal opened={this.state.opened}
-              onClose={() => this.setState({ opened: false })}
-              width="70"
-            >
-              <Title.H2>Adicionar bolsa</Title.H2>
-              <Text>Selecione sua cidade</Text>
-              <Select></Select>
-              <Text>Selecione seu curso de preferência</Text>
-              <Select></Select>
-              <Text>Como você quer estudar</Text>
-              <div>
-                <Checkbox>Presencial</Checkbox>
-                <Checkbox>A distância</Checkbox>
-              </div>
-              <Text>Até quanto pode pagar?</Text>
+          <Modal opened={this.state.opened}
+            onClose={() => this.setState({ opened: false })}
+            width="70"
+          >
+            <Title.H2>Adicionar bolsa</Title.H2>
+            <Text>Selecione sua cidade</Text>
+            <Select></Select>
+            <Text>Selecione seu curso de preferência</Text>
+            <Select></Select>
+            <Text>Como você quer estudar</Text>
+            <div>
+              <Checkbox>Presencial</Checkbox>
+              <Checkbox>A distância</Checkbox>
+            </div>
+            <Text>Até quanto pode pagar?</Text>
 
+            <div>
+              <Text>Resultado:</Text>
+              <Text>Ordenar por {this.state.filters}</Text>
               <div>
-                <Text>Resultado:</Text>
-                <Text>Ordenar por {this.state.filters}</Text>
-                <div>
-                  {error ? <p>{error.message}</p> : null}
-                  {!isLoading ? (
-                    data.map(item => {
-                      const { university, course, discount_percentage, price_with_discount } = item
+                {error ? <p>{error.message}</p> : null}
+                {!isLoading ? (
+                  <Scholarships>
+                    {data.map(item => {
                       return (
-                        <div key={Math.random()}>
-                          <Checkbox><img src={university.logo_url} alt={university.name} /></Checkbox>
-                          <Text>{course.name}</Text>
-                          <Text>{course.level}</Text>
-                          <Text>Bolsa de {discount_percentage} {price_with_discount}</Text>
-                        </div>
+                        <ScholarshipsItem key={Math.random()} {...item} />
                       )
-                    })
-                  ) : (
-                      <h3>Loading...</h3>
-                    )}
-                </div>
-                <div>
-                  <Button>Cancelar</Button>
-                  <Button>Adicionar bolsa(s)</Button>
-                </div>
+                    })}
+                  </Scholarships>
+                ) : (
+                    <h3>Loading...</h3>
+                  )}
               </div>
+              <div>
+                <Button>Cancelar</Button>
+                <Button>Adicionar bolsa(s)</Button>
+              </div>
+            </div>
 
-            </Modal>
-          </Flexbox>
+          </Modal>
           <Cell size={[12, 12, 12]}>
             <Footer height='100px' />
           </Cell>
         </Grid>
-      </Page>
+      </Page >
     )
   }
 }
