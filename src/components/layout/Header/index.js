@@ -1,9 +1,16 @@
 import React from 'react'
 import { oneOfType, node, func } from 'prop-types'
 import styled from 'styled-components'
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+
 import Logo from './Logo'
 import Grid from '../Grid'
 import Cell from '../Cell'
+import Text from '../../content/Text'
 
 const HeaderContainer = styled.div`
   padding-bottom: 32px;
@@ -27,10 +34,11 @@ const Header = ({ height }) => (
       <Grid>
         <Cell size={[4, 4, 4]}>
           <AlignContent>
-            <p>Como funciona?</p>
+            <Text><FontAwesomeIcon icon={faInfoCircle} /> Como funciona?</Text>
             <div>
-              <p>0800 123 2222</p>
-              <p>Envie mensagem ou ligue</p>
+              <FontAwesomeIcon icon={faWhatsapp} />
+              <Text>0800 123 2222</Text>
+              <Text>Envie mensagem ou ligue</Text>
             </div>
           </AlignContent>
         </Cell>
@@ -41,7 +49,8 @@ const Header = ({ height }) => (
         </Cell>
         <Cell size={[4, 4, 4]}>
           <AlignContent>
-            <span>Nome Sobrenome</span>
+            <Text>Nome Sobrenome</Text>
+            <FontAwesomeIcon icon={faUser} />
           </AlignContent>
         </Cell>
       </Grid>
