@@ -4,7 +4,6 @@ import styled from 'styled-components'
 
 const PageContainer = styled.div`
   background-color: #FBFBFB;
-  padding-bottom: 32px;
   width: 100%;
   margin: 0 auto;
   ${props => props.height && `height: ${props.height};`}
