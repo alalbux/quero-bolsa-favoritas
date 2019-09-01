@@ -12,10 +12,6 @@ const ScholarshipsText = styled.div`
 `
 
 const ScholarshipsItem = styled(class extends Component {
-  constructor (props) {
-    super(props)
-  }
-
   render () {
     const { className, data } = this.props
 
