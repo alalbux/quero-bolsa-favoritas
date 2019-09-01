@@ -2,7 +2,6 @@ import React from 'react'
 import { oneOfType, node, func } from 'prop-types'
 import styled from 'styled-components'
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInfoCircle, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
