@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faInfoCircle, faEnvelope, faComments } from '@fortawesome/free-solid-svg-icons'
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
+import Text from '../../content/Text'
 import Grid from '../Grid'
 import Cell from '../Cell'
 
@@ -19,6 +20,26 @@ const FooterContainer = styled.div`
   justify-content: space-around;
 `
 
+const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const TextContainer = styled(Text)`
+  padding: 16px 8px;
+  line-height: 1.2;
+`
+
+const FooterText = styled.span`
+  color: #FFFFFF;
+  font-weight: bold;
+  display: block;
+`
+
+const FooterTitle = styled(FooterText)`
+  font-size: 18px;
+`
+
 const AcknowledgmentContent = styled.div`
   background: #18ACC4;
   display: flex;
@@ -27,40 +48,56 @@ const AcknowledgmentContent = styled.div`
   min-height: 100px;
 `
 
-const Footer = ({ height }) => (
-  <FooterContainer height={height}>
+const AcknowledgmentText = styled(FooterText)`
+  font-size: 14px;
+`
+
+const Footer = () => (
+  <FooterContainer>
     <Grid>
       <Cell size={[3, 3, 3]}>
-        <div>
-          <FontAwesomeIcon icon={faWhatsapp} />
-          <p>0800 123 2222</p>
-          <p>Envie mensagem ou ligue</p>
-        </div>
+        <IconContainer>
+          <FontAwesomeIcon icon={faWhatsapp} size='3x' />
+          <TextContainer>
+            <FooterTitle>0800 123 2222</FooterTitle>
+            <FooterText>Envie mensagem ou ligue</FooterText>
+          </TextContainer>
+        </IconContainer>
       </Cell>
       <Cell size={[3, 3, 3]}>
-        <div>
-          <FontAwesomeIcon icon={faComments} />
-          <p>Chat ao vivo</p>
-          <p>Seg - Sex 8h-22h</p>
-        </div>
+        <IconContainer>
+          <FontAwesomeIcon icon={faComments} size='3x' />
+          <TextContainer>
+            <FooterTitle>Chat ao vivo</FooterTitle>
+            <FooterText>Seg - Sex 8h-22h</FooterText>
+          </TextContainer>
+        </IconContainer>
       </Cell>
       <Cell size={[3, 3, 3]}>
-        <div>
-          <FontAwesomeIcon icon={faEnvelope} />
-          <p>Mande um e-mail</p>
-          <p>Respondemos rapidinho</p>
-        </div>
+        <IconContainer>
+          <FontAwesomeIcon icon={faEnvelope} size='3x' />
+          <TextContainer>
+            <FooterTitle>Mande um e-mail</FooterTitle>
+            <FooterText>Respondemos rapidinho</FooterText>
+          </TextContainer>
+        </IconContainer>
       </Cell>
       <Cell size={[3, 3, 3]}>
-        <div>
-          <FontAwesomeIcon icon={faInfoCircle} />
-          <p>Central de ajuda</p>
-          <p>Encontre todas as respostas</p>
-        </div>
+        <IconContainer>
+          <FontAwesomeIcon icon={faInfoCircle} size='3x' />
+          <TextContainer>
+            <FooterTitle>Central de ajuda</FooterTitle>
+            <FooterText>Encontre todas as respostas</FooterText>
+          </TextContainer>
+        </IconContainer>
       </Cell>
       <Cell size={[12, 12, 12]}>
         <AcknowledgmentContent>
-          <p>Feito <FontAwesomeIcon icon={faHeart} /> com pela Quero Educação</p>
+          <TextContainer>
+            <AcknowledgmentText>
+              Feito <FontAwesomeIcon icon={faHeart} /> com pela Quero Educação
+            </AcknowledgmentText>
+          </TextContainer>
         </AcknowledgmentContent>
       </Cell>
     </Grid>
