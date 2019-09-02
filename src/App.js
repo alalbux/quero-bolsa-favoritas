@@ -94,7 +94,7 @@ class App extends Component {
             </Col>
             <Container>
               <Flexbox horizontal
-              colSize={12}>
+                colSize={12}>
                 {!isLoading ? (
                   data.map(item => {
                     const {
@@ -161,10 +161,8 @@ class App extends Component {
               </div>
 
             </Modal>
-            <Col size={[12, 12, 12]}>
-              <Footer />
-            </Col>
           </Grid>
+          <Footer />
         </Flexbox>
       </Page >
     )
