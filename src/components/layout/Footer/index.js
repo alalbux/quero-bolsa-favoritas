@@ -8,7 +8,8 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 import Text from '../../content/Text'
 import Grid from '../Grid'
-import Cell from '../Cell'
+import Col from '../Col'
+import Row from '../Row'
 
 const FooterContainer = styled.div`
   background: #007A8D;
@@ -17,7 +18,7 @@ const FooterContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
 `
 
 const IconContainer = styled.div`
@@ -55,52 +56,52 @@ const AcknowledgmentText = styled(FooterText)`
 const Footer = () => (
   <FooterContainer>
     <Grid>
-      <Cell size={[3, 3, 3]}>
-        <IconContainer>
-          <FontAwesomeIcon icon={faWhatsapp} size='3x' />
-          <TextContainer>
-            <FooterTitle>0800 123 2222</FooterTitle>
-            <FooterText>Envie mensagem ou ligue</FooterText>
-          </TextContainer>
-        </IconContainer>
-      </Cell>
-      <Cell size={[3, 3, 3]}>
-        <IconContainer>
-          <FontAwesomeIcon icon={faComments} size='3x' />
-          <TextContainer>
-            <FooterTitle>Chat ao vivo</FooterTitle>
-            <FooterText>Seg - Sex 8h-22h</FooterText>
-          </TextContainer>
-        </IconContainer>
-      </Cell>
-      <Cell size={[3, 3, 3]}>
-        <IconContainer>
-          <FontAwesomeIcon icon={faEnvelope} size='3x' />
-          <TextContainer>
-            <FooterTitle>Mande um e-mail</FooterTitle>
-            <FooterText>Respondemos rapidinho</FooterText>
-          </TextContainer>
-        </IconContainer>
-      </Cell>
-      <Cell size={[3, 3, 3]}>
-        <IconContainer>
-          <FontAwesomeIcon icon={faInfoCircle} size='3x' />
-          <TextContainer>
-            <FooterTitle>Central de ajuda</FooterTitle>
-            <FooterText>Encontre todas as respostas</FooterText>
-          </TextContainer>
-        </IconContainer>
-      </Cell>
-      <Cell size={[12, 12, 12]}>
-        <AcknowledgmentContent>
-          <TextContainer>
-            <AcknowledgmentText>
-              Feito <FontAwesomeIcon icon={faHeart} /> com pela Quero Educação
-            </AcknowledgmentText>
-          </TextContainer>
-        </AcknowledgmentContent>
-      </Cell>
+      <Row>
+        <Col xs={12} sm={3} md={3} lg={3}>
+          <IconContainer>
+            <FontAwesomeIcon icon={faWhatsapp} size='3x' />
+            <TextContainer>
+              <FooterTitle>0800 123 2222</FooterTitle>
+              <FooterText>Envie mensagem ou ligue</FooterText>
+            </TextContainer>
+          </IconContainer>
+        </Col>
+        <Col xs={12} sm={3} md={3} lg={3}>
+          <IconContainer>
+            <FontAwesomeIcon icon={faComments} size='3x' />
+            <TextContainer>
+              <FooterTitle>Chat ao vivo</FooterTitle>
+              <FooterText>Seg - Sex 8h-22h</FooterText>
+            </TextContainer>
+          </IconContainer>
+        </Col>
+        <Col xs={12} sm={3} md={3} lg={3}>
+          <IconContainer>
+            <FontAwesomeIcon icon={faEnvelope} size='3x' />
+            <TextContainer>
+              <FooterTitle>Mande um e-mail</FooterTitle>
+              <FooterText>Respondemos rapidinho</FooterText>
+            </TextContainer>
+          </IconContainer>
+        </Col>
+        <Col xs={12} sm={3} md={3} lg={3}>
+          <IconContainer>
+            <FontAwesomeIcon icon={faInfoCircle} size='3x' />
+            <TextContainer>
+              <FooterTitle>Central de ajuda</FooterTitle>
+              <FooterText>Encontre todas as respostas</FooterText>
+            </TextContainer>
+          </IconContainer>
+        </Col>
+      </Row>
     </Grid>
+    <AcknowledgmentContent>
+      <TextContainer>
+        <AcknowledgmentText>
+          Feito <FontAwesomeIcon icon={faHeart} /> com pela Quero Educação
+            </AcknowledgmentText>
+      </TextContainer>
+    </AcknowledgmentContent>
   </FooterContainer>
 )
 
