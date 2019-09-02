@@ -28,22 +28,18 @@ const Col = styled.div`
     .sort((k1, k2) => DIMENSION_NAMES.indexOf(k1) - DIMENSION_NAMES.indexOf(k2))
     .map(k => config(props).media[k]`${
       !(props[k])
-        // Integer value
         ? `
         flex-basis: ${100 / config(props).gridSize * props[k]}%;
         max-width: ${100 / config(props).gridSize * props[k]}%;
         display: block;
       `
-        // Boolean
         : (props[k]
-          // Auto-width
           ? `
           flex-grow: 1;
           flex-basis: 0;
           max-width: 100%;
           display: block;
         `
-          // Hide element
           : 'display: none;'
         )
       }`)
