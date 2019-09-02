@@ -21,6 +21,16 @@ import {
   Scholarships,
   ScholarshipsItem
 } from './components'
+import styled from 'styled-components'
+
+const TitlePage = styled(Title.H1)`
+  font-size: 38px;
+  margin-bottom: 16px;
+`
+const SubtitlePage = styled(Title.H2)`
+  font-size: 24px;
+  margin-bottom: 32px;
+`
 
 class App extends Component {
   constructor(props) {
@@ -63,8 +73,11 @@ class App extends Component {
             <Row>
               <Col xs={12} sm={12} md={12} lg={12}>
                 <Breadcrumbs />
-                <Title.H1>Bolsas favoritas</Title.H1>
-                <Title.H2>Adicione bolsas de cursos e faculdades do seu interesse e receba atualização das melhores ofertas disponíveis</Title.H2>
+                <TitlePage>Bolsas favoritas</TitlePage>
+                <SubtitlePage>
+                  Adicione bolsas de cursos e faculdades do seu interesse e receba atualização 
+                  das melhores ofertas disponíveis
+                </SubtitlePage>
               </Col>
             </Row>
             <Row>
