@@ -16,6 +16,7 @@ import {
   Grid,
   Cell,
   ButtonGroup,
+  ScholarshipsCard,
   Scholarships,
   ScholarshipsItem
 } from './components'
@@ -93,35 +94,22 @@ class App extends Component {
           </Cell>
           {!isLoading ? (
             data.map(item => {
-              const { university, course, price_with_discount, full_price, enabled } = item
-              const isEnabled = enabled
+              const {
+                university,
+                course,
+                price_with_discount,
+                full_price,
+                enabled 
+              } = item
               return (
                 <Cell size={[3, 3, 3]}>
-                  <Card>
-                    <img src={university.logo_url} alt={university.name} />
-                    <Text>{university.name}</Text>
-                    <Text>{course.name}</Text>
-                    <Text>{university.score}</Text>
-                    <Text>{course.kind} - {course.shift}</Text>
-                    <Text>Início das aulas em: 05/07/2019</Text>
-                    {!isEnabled ? (
-                      <div>
-                        <Text>Mensalidade com o Quero Bolsa:</Text>
-                        <Text>{full_price}</Text>
-                        <Text>{price_with_discount}</Text>
-                        <Button>Excluir</Button>
-                        <Button>Ver oferta</Button>
-                      </div>
-                    ) : (
-                        <div>
-                          <Text>Bolsa indisponível.</Text>
-                          <Text>Entre em contato com nosso atendimento para saber mais.</Text>
-                          <Button>Excluir</Button>
-                          <Button disabled>Indisponível</Button>
-                        </div>
-                      )}
-
-                  </Card>
+                  <ScholarshipsCard
+                    isEnabled={enabled}
+                    university={university}
+                    course={course}
+                    priceWithDiscount={price_with_discount}
+                    fullPrice={full_price}
+                  />
                 </Cell>
               )
             })

@@ -58,8 +58,8 @@ const StartsDetails = styled(Text)`
   text-align: center;
   font-size: 14px;
   border-bottom: 2px solid gray;
-  padding: 8px;
-  margin: 8px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
 `
 
 const Small = styled.span`
