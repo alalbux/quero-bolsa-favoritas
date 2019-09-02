@@ -8,7 +8,8 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 
 import Logo from './Logo'
 import Grid from '../Grid'
-import Cell from '../Cell'
+import Col from '../Col'
+import Row from '../Row'
 import Text from '../../content/Text'
 import Link from '../../content/Link'
 
@@ -54,7 +55,6 @@ const HeaderNumber = styled(HeaderText)`
   font-size: 18px;
 `
 
-
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
@@ -64,38 +64,40 @@ const Container = styled.div`
 const Header = () => (
   <HeaderContainer>
     <Grid>
-      <Cell size={[4, 4, 4]}>
-        <Container>
+      <Row>
+        <Col xs={12} sm={3} md={2} lg={1}>
+          <Container>
+            <IconContainer>
+              <FontAwesomeIcon icon={faInfoCircle} size='2x' />
+              <TextContainer>
+                <HeaderLink>Como funciona</HeaderLink>
+              </TextContainer>
+            </IconContainer>
+            <IconContainer>
+              <WhatsappIcon>
+                <FontAwesomeIcon icon={faWhatsapp} size='2x' />
+              </WhatsappIcon>
+              <TextContainer>
+                <HeaderNumber>0800 123 2222</HeaderNumber>
+                <HeaderText>Envie mensagem ou ligue</HeaderText>
+              </TextContainer>
+            </IconContainer>
+          </Container>
+        </Col>
+        <Col xs={12} sm={3} md={2} lg={1}>
+          <Container>
+            <Logo />
+          </Container>
+        </Col>
+        <Col xs={12} sm={3} md={2} lg={1}>
           <IconContainer>
-            <FontAwesomeIcon icon={faInfoCircle} size='2x' />
             <TextContainer>
-              <HeaderLink>Como funciona</HeaderLink>
+              <HeaderLink>Nome Sobrenome</HeaderLink>
             </TextContainer>
+            <FontAwesomeIcon icon={faUser} />
           </IconContainer>
-          <IconContainer>
-            <WhatsappIcon>
-              <FontAwesomeIcon icon={faWhatsapp} size='2x' />
-            </WhatsappIcon>
-            <TextContainer>
-              <HeaderNumber>0800 123 2222</HeaderNumber>
-              <HeaderText>Envie mensagem ou ligue</HeaderText>
-            </TextContainer>
-          </IconContainer>
-        </Container>
-      </Cell>
-      <Cell size={[4, 4, 4]}>
-        <Container>
-          <Logo />
-        </Container>
-      </Cell>
-      <Cell size={[4, 4, 4]}>
-        <IconContainer>
-          <TextContainer>
-            <HeaderLink>Nome Sobrenome</HeaderLink>
-          </TextContainer>
-          <FontAwesomeIcon icon={faUser} />
-        </IconContainer>
-      </Cell>
+        </Col>
+      </Row>
     </Grid>
   </HeaderContainer>
 )
