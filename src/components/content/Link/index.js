@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import Text from '../Text'
 
-const Link = styled(Text)`
+const Link = styled.a`
   color: #ee0099;
   text-decoration: none;
+  cursor: pointer;
 
   &:visited {
     color: #b4006c;
@@ -12,6 +12,7 @@ const Link = styled(Text)`
 
   &:hover {
     text-decoration: underline;
+    text-decoration: none;
   }
 `
 
