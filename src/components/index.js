@@ -15,7 +15,8 @@ export { default as Input } from './form/Input'
 export { default as Select } from './form/Select'
 
 // layout
-export { default as Cell } from './layout/Cell'
+export { default as Col } from './layout/Col'
+export { default as Container } from './layout/Container'
 export { default as Flexbox } from './layout/Flexbox'
 export { default as Footer } from './layout/Footer'
 export { default as Grid } from './layout/Grid'
