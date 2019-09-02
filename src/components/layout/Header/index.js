@@ -10,6 +10,7 @@ import Logo from './Logo'
 import Grid from '../Grid'
 import Cell from '../Cell'
 import Text from '../../content/Text'
+import Link from '../../content/Link'
 
 const HeaderContainer = styled.div`
   padding-bottom: 32px;
@@ -22,37 +23,80 @@ const HeaderContainer = styled.div`
   ${props => props.height && `height: ${props.height};`}
 `
 
-const AlignContent = styled.div`
+const IconContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const TextContainer = styled(Text)`
+  padding: 16px 8px;
+  line-height: 1.2;
+  font-size: 14px;
+`
+
+const HeaderLink = styled(Link)`
+  font-weight: bold;
+  font-size: 16px;
+  color: #007A8D;
+`
+
+const HeaderText = styled.span`
+  font-weight: bold;
+  display: block;
+  color: #007A8D;
+`
+
+const WhatsappIcon = styled.span`
+  color: #34af23;
+`
+
+const HeaderNumber = styled(HeaderText)`
+  font-size: 18px;
+`
+
+
+const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
 `
 
-const Header = ({ height }) => (
-  <HeaderContainer height={height}>
-      <Grid>
-        <Cell size={[4, 4, 4]}>
-          <AlignContent>
-            <Text><FontAwesomeIcon icon={faInfoCircle} /> Como funciona?</Text>
-            <div>
-              <FontAwesomeIcon icon={faWhatsapp} />
-              <Text>0800 123 2222</Text>
-              <Text>Envie mensagem ou ligue</Text>
-            </div>
-          </AlignContent>
-        </Cell>
-        <Cell size={[4, 4, 4]}>
-          <AlignContent>
-            <Logo />
-          </AlignContent>
-        </Cell>
-        <Cell size={[4, 4, 4]}>
-          <AlignContent>
-            <Text>Nome Sobrenome</Text>
-            <FontAwesomeIcon icon={faUser} />
-          </AlignContent>
-        </Cell>
-      </Grid>
+const Header = () => (
+  <HeaderContainer>
+    <Grid>
+      <Cell size={[4, 4, 4]}>
+        <Container>
+          <IconContainer>
+            <FontAwesomeIcon icon={faInfoCircle} size='2x' />
+            <TextContainer>
+              <HeaderLink>Como funciona</HeaderLink>
+            </TextContainer>
+          </IconContainer>
+          <IconContainer>
+            <WhatsappIcon>
+              <FontAwesomeIcon icon={faWhatsapp} size='2x' />
+            </WhatsappIcon>
+            <TextContainer>
+              <HeaderNumber>0800 123 2222</HeaderNumber>
+              <HeaderText>Envie mensagem ou ligue</HeaderText>
+            </TextContainer>
+          </IconContainer>
+        </Container>
+      </Cell>
+      <Cell size={[4, 4, 4]}>
+        <Container>
+          <Logo />
+        </Container>
+      </Cell>
+      <Cell size={[4, 4, 4]}>
+        <IconContainer>
+          <TextContainer>
+            <HeaderLink>Nome Sobrenome</HeaderLink>
+          </TextContainer>
+          <FontAwesomeIcon icon={faUser} />
+        </IconContainer>
+      </Cell>
+    </Grid>
   </HeaderContainer>
 )
 
