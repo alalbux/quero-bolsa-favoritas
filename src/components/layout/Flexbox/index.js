@@ -40,6 +40,10 @@ const Flexbox = styled.div`
     justify-content: space-${props.spacing}
   `}
 
+  ${props => props.wrap && `
+    flex-wrap: wrap;
+  `}
+
   ${props => props.colSize && `
     & > * {
       width: ${props.colSize};
@@ -62,6 +66,7 @@ Flexbox.propTypes = {
   vertical: bool,
   middle: bool,
   end: bool,
+  wrap: bool,
   spacing: oneOf(['around', 'between']),
   colSize: string,
   margin: shape({
