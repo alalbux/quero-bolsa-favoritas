@@ -58,11 +58,6 @@ div {
 }
 `
 
-ScholarshipsItem.propTypes = {
-  date: oneOfType([string, object, number]).isRequired,
-  text: string.isRequired
-}
-
 ScholarshipsItem.displayName = 'ScholarshipsItem'
 
 export default ScholarshipsItem
