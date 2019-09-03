@@ -1,25 +1,19 @@
 import React, { Component } from 'react'
 import {
-  Button,
   Header,
   Menu,
   Footer,
   Breadcrumbs,
-  Card,
   Title,
   Text,
-  Checkbox,
-  Select,
   Flexbox,
-  Modal,
   Page,
   Grid,
   Row,
   Col,
   ButtonGroup,
   ScholarshipsCard,
-  Scholarships,
-  ScholarshipsItem
+  AddScholarshipsCard
 } from './components'
 import styled from 'styled-components'
 
@@ -27,8 +21,8 @@ const TitlePage = styled(Title.H1)`
   font-size: 38px;
   margin-bottom: 16px;
 `
-const SubtitlePage = styled(Title.H2)`
-  font-size: 24px;
+const SubtitlePage = styled(Text)`
+  font-size: 16px;
   margin-bottom: 32px;
 `
 
@@ -75,7 +69,7 @@ class App extends Component {
                 <Breadcrumbs />
                 <TitlePage>Bolsas favoritas</TitlePage>
                 <SubtitlePage>
-                  Adicione bolsas de cursos e faculdades do seu interesse e receba atualização 
+                  Adicione bolsas de cursos e faculdades do seu interesse e receba atualização
                   das melhores ofertas disponíveis
                 </SubtitlePage>
               </Col>
@@ -103,12 +97,9 @@ class App extends Component {
                 </Flexbox>
               </Col>
             </Row>
-            <Row>
+            <Row between>
               <Col xs={3} sm={3} md={3} lg={3}>
-                <Card onClick={() => this.setState({ opened: true })}>
-                  <Text>Adicionar bolsa</Text>
-                  <Text>Clique para adicionar bolsas do seu interesse</Text>
-                </Card>
+                <AddScholarshipsCard />
               </Col>
               {!isLoading ? (
                 data.map(item => {
@@ -120,7 +111,7 @@ class App extends Component {
                     enabled
                   } = item
                   return (
-                    <Col xs={3} sm={3} md={3} lg={3}>
+                    <Col xs={12} sm={12} md={3} lg={3}>
                       <ScholarshipsCard
                         isEnabled={enabled}
                         university={university}
@@ -134,46 +125,6 @@ class App extends Component {
               ) : (
                   <h3>Loading...</h3>
                 )}
-              <Modal opened={this.state.opened}
-                onClose={() => this.setState({ opened: false })}
-                width="70"
-              >
-                <Title.H2>Adicionar bolsa</Title.H2>
-                <Text>Selecione sua cidade</Text>
-                <Select></Select>
-                <Text>Selecione seu curso de preferência</Text>
-                <Select></Select>
-                <Text>Como você quer estudar</Text>
-                <div>
-                  <Checkbox>Presencial</Checkbox>
-                  <Checkbox>A distância</Checkbox>
-                </div>
-                <Text>Até quanto pode pagar?</Text>
-
-                <div>
-                  <Text>Resultado:</Text>
-                  <Text>Ordenar por {this.state.filters}</Text>
-                  <div>
-                    {error ? <p>{error.message}</p> : null}
-                    {!isLoading ? (
-                      <Scholarships>
-                        {data.map(item => {
-                          return (
-                            <ScholarshipsItem key={Math.random()} {...item} />
-                          )
-                        })}
-                      </Scholarships>
-                    ) : (
-                        <h3>Loading...</h3>
-                      )}
-                  </div>
-                  <div>
-                    <Button>Cancelar</Button>
-                    <Button>Adicionar bolsa(s)</Button>
-                  </div>
-                </div>
-
-              </Modal>
             </Row>
           </Grid>
           <Footer />

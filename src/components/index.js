@@ -1,6 +1,7 @@
 // cards
 export { default as Card } from './cards/Card'
 export { default as ScholarshipsCard } from './cards/ScholarshipsCard'
+export { default as AddScholarshipsCard } from './cards/AddScholarshipsCard'
 
 //content
 export { default as Button } from './content/Button'
