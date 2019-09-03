@@ -57,8 +57,8 @@ const StartsDetails = styled(Text)`
   text-align: center;
   font-size: 14px;
   border-bottom: 2px solid gray;
-  padding-bottom: 16px;
-  margin-bottom: 16px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
 `
 
 const Small = styled.span`
@@ -86,7 +86,7 @@ const ActionsContainer = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  padding: 16px 0;
+  padding: 8px 0;
 `
 
 const DiscountPrice = styled.span`
