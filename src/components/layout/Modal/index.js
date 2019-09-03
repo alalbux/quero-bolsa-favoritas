@@ -18,9 +18,10 @@ const ModalWrapper = styled.div`
 const ModalContent = styled.div`
   background-color: #fefefe;
   margin: 100px auto;
-  padding: 20px;
+  padding: 34px;
   border: 1px solid #888;
-  width: ${props => `${props.width}%`};
+  max-width: ${props => `${props.width}px`};
+  width: 100%;
 `
 
 const CloseButton = styled.div`

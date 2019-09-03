@@ -28,37 +28,37 @@ const Checkbox = styled(({ children, className, ...inputProps }) => (
     height: 17px;
     width: 17px;
     background: #fff;
-    border: 1px solid #4a4a4a;
+    border: 1px solid #18ACC4;
     border-radius: 4px;
   }
 
   &:hover input:not([disabled]) ~ .box,
   & input:not([disabled]):focus ~ .box {
-    border-color: #ee0099;
+    border-color: #007A8D;
   }
 
   & input:checked ~ .box {
-    background: #ff0099;
-    border-color: #ff0099;
+    background: #18ACC4;
+    border-color: #18ACC4;
   }
 
   & input:disabled:checked ~ .box {
-    background: #d1cdd2;
+    background: #18ACC4;
   }
 
   &:hover input:not([disabled]):checked ~ .box,
   & input:checked:focus ~ .box {
-    background: #ff0099;
-    border-color: #ff0099;
+    background: #18ACC4;
+    border-color: #18ACC4;
   }
 
   & input:disabled ~ .box {
-    border-color: #d1cdd2;
+    border-color: #18ACC4;
     opacity: 0.6;
     pointer-events: none;
   }
   & input:disabled ~ span {
-    color: #d1cdd2;
+    color: #18ACC4;
   }
 
   & input:checked ~ .box:after {

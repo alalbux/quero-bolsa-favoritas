@@ -6,7 +6,6 @@ import Text from '../../content/Text'
 
 const ScholarshipsText = styled.div`
   padding: 23px 35px 23px 40px;
-  border-bottom: 1px solid #eeeeee;
   font-size: 16px;
   line-height: 1.35;
   color: #333333;
@@ -16,10 +15,17 @@ const ScholarshipsWrapper = styled.li`
   display: flex;
   justify-content: start;
   align-content: center;
+  border-bottom: 1px solid #eeeeee;
 `
 
 const ScholarshipsInfos = styled.div`
   width: 100%;
+`
+
+const ScholarshipsTitle = styled(Text)`
+  color: #007A8D;
+  font-weight: bold;
+  margin-bottom: 4px;
 `
 
 const ScholarshipsLogo = styled.div`
@@ -45,7 +51,7 @@ const ScholarshipsItem = styled(class extends Component {
           <Checkbox><img src={university.logo_url} alt={university.name} /></Checkbox>
         </ScholarshipsLogo>
         <ScholarshipsInfos>
-          <Text>{course.name}</Text>
+          <ScholarshipsTitle>{course.name}</ScholarshipsTitle>
           <Text>{course.level}</Text>
         </ScholarshipsInfos>
         <ScholarshipsText>Bolsa de {discount_percentage} {price_with_discount}</ScholarshipsText>

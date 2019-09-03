@@ -34,29 +34,25 @@ class App extends Component {
       filters: [
         'filters'
       ],
-      data: [],
+      scholarships: [],
       isLoading: false
     }
   }
 
   componentDidMount() {
-    this.fetchData()
+    // this.fetchData()
   }
 
-  fetchData() {
-    fetch(`https://testapi.io/api/redealumni/scholarships`)
-      .then(response => response.json())
-      .then(data =>
-        this.setState({
-          data: data,
-          isLoading: false,
-        })
-      )
-      .catch(error => this.setState({ error, isLoading: false }))
+  addData() {
+    const data = []
+    this.setState({
+      scholarships: data,
+      isLoading: false,
+    })
   }
 
   render() {
-    const { isLoading, data, error } = this.state
+    const { isLoading, scholarships } = this.state
 
     return (
       <Page>
@@ -98,12 +94,12 @@ class App extends Component {
                 </Flexbox>
               </Col>
             </Row>
-            <Row between>
+            <Row>
               <Col xs={3} sm={3} md={3} lg={3}>
                 <AddScholarshipsCard />
               </Col>
               {!isLoading ? (
-                data.map(item => {
+                scholarships.map(item => {
                   const {
                     university,
                     course,

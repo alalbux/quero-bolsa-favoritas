@@ -5,6 +5,9 @@ import Title from '../../content/Title'
 import Text from '../../content/Text'
 import Button from '../../content/Button'
 import Modal from '../../layout/Modal'
+import Grid from '../../layout/Grid'
+import Col from '../../layout/Col'
+import Row from '../../layout/Row'
 import Select from '../../form/Select'
 import Checkbox from '../../form/Checkbox'
 import Scholarships from '../../list/Scholarships'
@@ -36,6 +39,18 @@ const AddScholarshipsSubtitle = styled(Text)`
   text-align: center;
 `
 
+const ModalTitle = styled.h2`
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 8px;
+`
+
+const ModalSubtitle = styled(Text)`
+  margin-bottom: 16px;
+`
+
+const FormContent = styled.div`
+`
 
 class AddScholarshipsCard extends Component {
   constructor(props) {
@@ -77,20 +92,32 @@ class AddScholarshipsCard extends Component {
         </AddScholarships>
         <Modal opened={this.state.opened}
           onClose={() => this.setState({ opened: false })}
-          width="80"
+          width="740"
         >
-          <Title.H2>Adicionar bolsa</Title.H2>
-          <Text>Selecione sua cidade</Text>
-          <Select></Select>
-          <Text>Selecione seu curso de preferência</Text>
-          <Select></Select>
-          <Text>Como você quer estudar</Text>
-          <div>
-            <Checkbox>Presencial</Checkbox>
-            <Checkbox>A distância</Checkbox>
-          </div>
-          <Text>Até quanto pode pagar?</Text>
-
+          <ModalTitle>Adicionar bolsa</ModalTitle>
+          <ModalSubtitle>Filtre e adicione as bolsas de seu interesse.</ModalSubtitle>
+          <FormContent>
+            <Row wrap>
+              <Col xs={6} sm={6} md={6} lg={6}>
+                <Text>Selecione sua cidade</Text>
+                <Select></Select>
+              </Col>
+              <Col xs={6} sm={6} md={6} lg={6}>
+                <Text>Selecione seu curso de preferência</Text>
+                <Select></Select>
+              </Col>
+              <Col xs={6} sm={6} md={6} lg={6}>
+                <Text>Como você quer estudar</Text>
+                <div>
+                  <Checkbox>Presencial</Checkbox>
+                  <Checkbox>A distância</Checkbox>
+                </div>
+              </Col>
+              <Col xs={6} sm={6} md={6} lg={6}>
+                <Text>Até quanto pode pagar?</Text>
+              </Col>
+            </Row>
+          </FormContent>
           <div>
             <Text>Resultado:</Text>
             <Text>Ordenar por {this.state.filters}</Text>
@@ -113,7 +140,6 @@ class AddScholarshipsCard extends Component {
               <Button>Adicionar bolsa(s)</Button>
             </div>
           </div>
-
         </Modal>
       </div>
     )
