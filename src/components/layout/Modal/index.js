@@ -2,7 +2,7 @@ import React from 'react'
 import { bool, func, number } from 'prop-types'
 import styled from 'styled-components'
 
-const ModalStyled = styled.div`
+const ModalWrapper = styled.div`
   display: ${props => !props.opened ? 'none' : 'block'};
   position: fixed;
   z-index: 1;
@@ -15,20 +15,20 @@ const ModalStyled = styled.div`
   background-color: rgba(0,0,0,0.4);
 `
 
-const ModalContentStyled = styled.div`
+const ModalContent = styled.div`
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 100px auto;
   padding: 20px;
   border: 1px solid #888;
   width: ${props => `${props.width}%`};
-  border-radius: 10px;
 `
 
-const CloseButtonStyled = styled.div`
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+const CloseButton = styled.div`
+  color: #FFFFFF;
+  font-size: 34px;
+  position: absolute;
+  right: 10%;
+  top: 50px;
 
   &:hover,
   &:focus {
@@ -39,12 +39,12 @@ const CloseButtonStyled = styled.div`
 `
 
 const Modal = ({ children, opened, onClose, width }) => (
-  <ModalStyled opened={opened}>
-    <ModalContentStyled width={width}>
-      <CloseButtonStyled onClick={onClose}>&times;</CloseButtonStyled>
+  <ModalWrapper opened={opened}>
+    <CloseButton onClick={onClose}>&times;</CloseButton>
+    <ModalContent width={width}>
       {children}
-    </ModalContentStyled>
-  </ModalStyled>
+    </ModalContent>
+  </ModalWrapper>
 )
 
 Modal.propTypes = {
