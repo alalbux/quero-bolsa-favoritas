@@ -11,39 +11,39 @@ const Row = styled.div`
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: ${p => config(p).gutterWidth / 2 * -1}rem;
-  margin-left: ${p => config(p).gutterWidth / 2 * -1}rem;
-  ${p => p.reverse && `
+  margin-right: ${props => config(props).gutterWidth / 2 * -1}rem;
+  margin-left: ${props => config(props).gutterWidth / 2 * -1}rem;
+  ${props => props.reverse && `
     flex-direction: row-reverse;
   `}
-  ${p => p.start && config(p).media[p.start]`
+  ${props => props.start && `
     justify-content: flex-start;
   `}
-  ${p => p.center && config(p).media[p.center]`
+  ${props => props.center && `
     justify-content: center;
   `}
-  ${p => p.end && config(p).media[p.end]`
+  ${props => props.end && `
     justify-content: flex-end;
   `}
-  ${p => p.top && config(p).media[p.top]`
+  ${props => props.top && `
     align-items: flex-start;
   `}
-  ${p => p.middle && config(p).media[p.middle]`
+  ${props => props.middle && `
     align-items: center;
   `}
-  ${p => p.bottom && config(p).media[p.bottom]`
+  ${props => props.bottom && `
     align-items: flex-end;
   `}
-  ${p => p.around && config(p).media[p.around]`
+  ${props => props.around && `
     justify-content: space-around;
   `}
-  ${p => p.between && config(p).media[p.between]`
+  ${props => props.between && `
     justify-content: space-between;
   `}
-  ${p => p.first && config(p).media[p.first]`
+  ${props => props.first && `
     order: -1;
   `}
-  ${p => p.last && config(p).media[p.last]`
+  ${props => props.last && `
     order: 1;
   `}
 `
