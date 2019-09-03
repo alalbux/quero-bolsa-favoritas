@@ -77,7 +77,7 @@ class AddScholarshipsCard extends Component {
         </AddScholarships>
         <Modal opened={this.state.opened}
           onClose={() => this.setState({ opened: false })}
-          width="70"
+          width="80"
         >
           <Title.H2>Adicionar bolsa</Title.H2>
           <Text>Selecione sua cidade</Text>

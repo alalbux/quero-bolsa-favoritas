@@ -82,11 +82,12 @@ class App extends Component {
                     items={[
                       {
                         name: 'Todos os semestres',
-                        value: 'all'
+                        value: 'all',
+                        checked: true
                       },
                       {
                         name: '2º semestre de 2019',
-                        value: 'second-half'
+                        value: 'second-half',
                       },
                       {
                         name: '1º semestre de 2020',
