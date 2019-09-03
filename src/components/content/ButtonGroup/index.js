@@ -8,9 +8,8 @@ const ButtonGroupContainer = styled.div`
 const ButtonGroup = styled(({ items, ...inputProps }) => (
   <ButtonGroupContainer>
     {items.map(buttonGroupItem => (
-      <Fragment>
+      <Fragment key={`key-${buttonGroupItem.value}`}>
         <input type='radio'
-          { ...buttonGroupItem.value === 'all' && 'checked'}
           value={buttonGroupItem.value}
           id={buttonGroupItem.value}
           {...inputProps}
